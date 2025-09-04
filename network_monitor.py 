@@ -1,0 +1,30 @@
+import time
+from network_scanner import is_host_reachable  # Import from your scanner module
+import json
+
+def monitor_network(ip_list, interval=60):
+    """
+    Continuously monitor reachability of IPs at specified interval (seconds).
+    """
+    results = {}
+    try:
+        while True:
+            current_status = {}
+            for ip in ip_list:
+                status = is_host_reachable(ip)
+                current_status[ip] = 'reachable' if status else 'unreachable'
+            # Save or print results
+            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            print(f"\n[{timestamp}] Network status:")
+            print(json.dumps(current_status, indent=2))
+            # Save to file
+            with open('network_status.json', 'w') as f:
+                json.dump({'timestamp': timestamp, 'status': current_status}, f)
+            time.sleep(interval)
+    except KeyboardInterrupt:
+        print("Monitoring stopped by user.")
+
+if __name__ == "__main__":
+    # Use configured IPs or generate dynamically
+    ip_list = ["192.168.1.1", "192.168.1.2", "192.168.1.3"]
+    monitor_network(ip_list, interval=120)  # check every 2 minutes
