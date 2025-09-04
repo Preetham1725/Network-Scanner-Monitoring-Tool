@@ -1,0 +1,33 @@
+# Network Scanner & Monitoring Tool Dependencies
+# Author: Preetham L
+
+# Core network scanning libraries
+ping3>=4.0.4                # Cross-platform ping functionality
+requests>=2.31.0            # HTTP requests for web service checking
+PyYAML>=6.0.1               # YAML configuration parsing
+
+# Network and system utilities
+psutil>=5.9.5               # System and network monitoring
+python-nmap>=0.7.1          # Python wrapper for Nmap (optional)
+scapy>=2.5.0                # Advanced packet manipulation (optional)
+
+# Async networking (for advanced features)
+asyncio                     # Built-in async support
+aiohttp>=3.8.5              # Async HTTP client (optional)
+
+# Data visualization and reporting
+matplotlib>=3.7.2           # Network topology visualization (optional)
+pandas>=2.0.3               # Data analysis and reporting (optional)
+plotly>=5.15.0              # Interactive network graphs (optional)
+
+# Development and testing
+pytest>=7.4.0               # Unit testing
+pytest-asyncio>=0.21.1      # Async testing support
+pytest-cov>=4.1.0           # Test coverage
+flake8>=6.0.0               # Code linting
+black>=23.7.0               # Code formatting
+
+# Optional security scanning
+python-whois>=0.8.0         # WHOIS lookups
+dnspython>=2.4.2            # DNS toolkit
+cryptography>=41.0.3        # SSL/TLS analysis
